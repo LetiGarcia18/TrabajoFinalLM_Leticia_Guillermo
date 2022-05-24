@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Nintendo</title>
+
+    <style>
+        div {
+            display: block;
+        }
+
+        strong,
+        h1 {
+            font-weight: bold;
+            font-family: fantasy;
+            color: red;
+        }
+
+        div:nth-child(even):hover {
+            background-color: red;
+            transition: all 1s;
+            color: white;
+        }
+
+        div:nth-child(odd):hover {
+            background-color: lightblue;
+            transition: all 1s;
+            color: darkblue;
+        }
+
+        div::first-letter {
+            font-size: xx-large;
+        }
+
+        #nes {
+            height: 10%;
+            width: 10%;
+        }
+
+        #nes:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #gameboy {
+            height: 10%;
+            width: 10%;
+        }
+
+        #gameboy:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #nintendods {
+            height: 10%;
+            width: 10%;
+        }
+
+        #nintendods:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #gamecube {
+            height: 10%;
+            width: 10%;
+        }
+
+        #gamecube:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #wii {
+            height: 10%;
+            width: 10%;
+        }
+
+        #wii:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #nintedo64 {
+            height: 10%;
+            width: 10%;
+        }
+
+        #nintedo64:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #switch {
+            height: 10%;
+            width: 10%;
+        }
+
+        #switch:hover {
+            height: 20%;
+            width: 20%;
+            transition: all 1s;
+        }
+
+        #parrafo::before {
+            transition: all 1.5s ease;
+            -webkit-transition: all 1.5s ease;
+        }
+
+        p {
+            font-family: "Consolas", monospace;
+
+        }
+
+
+        #caja {
+            background-image: linear-gradient(to bottom left, rgb(255, 106, 0), rgb(255, 183, 0), rgb(255, 249, 142));
+
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 65%;
+            height: 65%;
+            margin: auto;
+            white-space: normal;
+            /* solo cambia de renglon con saltos de linea */
+            overflow: hidden;
+            /* oculta el texto que desborda. Necesario para animaciones */
+            text-overflow: clip;
+            /* recorta sin más */
+        }
+
+        #parrafo {
+            display: table-cell;
+            color: white;
+            vertical-align: middle;
+            text-align: center;
+            font-size: calc(6px + 1vw + 1vh);
+            /* tamaño de letra proporcional */
+            transition: all 1.5s ease;
+            /* defino transiciones para notarlas siempre */
+            -webkit-transition: all 1.5s ease;
+        }
+
+        #parrafo::before {
+            transition: all 1.5s ease;
+            /* defino transiciones para notarlas siempre */
+            -webkit-transition: all 1.5s ease;
+        }
+
+        #parrafo:hover {
+            color: rgb(245, 245, 245);
+            text-shadow: 1px 1px 3px black;
+            background-color: rgb(235, 125, 75);
+        }
+
+        #parrafo:hover::before {
+            content: "¯\_( ͡❛ ͜ʖ ͡❛)_/¯";
+            color: rgb(158, 63, 0);
+        }
+
+        /* The Modal (background) */
+        .modal {
+            position: fixed;
+            /* Stay in place */
+            display: none;
+            /* Hidden by default */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            right: 0;
+            width: 70%;
+            /* Full width */
+            height: 70%;
+            /* Full height */
+            margin: auto;
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(8, 5, 91, 0.5);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            margin: auto;
+            padding: 20px;
+            border: 5px solid rgb(16, 29, 210);
+            width: 80%;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #467ad5;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* DEFINO LAS ANIMACIONES */
+        #movida {
+            animation-duration: 3s;
+            animation-name: canguro;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes canguro {
+            from {
+                margin-left: 100%;
+                width: 300%;
+                color: yellow;
+            }
+
+            50% {
+                font-size: 400%;
+            }
+
+            to {
+                margin-left: 0%;
+                width: 100%;
+                color: rgb(0, 0, 0);
+            }
+
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+        }
+
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: dodgerblue;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        h2 {
+            color: aliceblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>CONSOLAS MÁS DESTACADAS</h1>
+
+    <div>
+        <p>NES (Nintendo Entertaiment System)</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 1985</p>
+        <p>UNIDADES VENDIDAS: 63 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: consola de 8 bits (tercera generación) desarrollada por Nintendo. Salió a la venta en Japón,
+            Norteamérica, Europa y Australia durante finales de los años 80.</p>
+        <h1></h1>
+        <h1></h1>
+        </br>
+        <img id="nes" src="nes1..jpg">
+    </div>
+
+
+
+    <div>
+        <p>GAME BOY</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 1989</p>
+        <p>UNIDADES VENDIDAS: 118 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Videoconsola portátil desarrollada y comercializada por Nintendo, lanzada por primera vez en
+            Japón y América del Norte en 1989, y en Europa un año después. Perteneció a la línea de consolas Game Boy,
+            siendo esta la primera de la serie.</p>
+        </br>
+        <img id="gameboy" src="gameboy.jpg">
+
+    </div>
+
+    <div>
+        <p>NINTENDO 64</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 1996</p>
+        <p>UNIDADES VENDIDAS: 32 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Desarrollada para suceder a la Super Nintendo. Fue la primera consola concebida para dar el
+            salto del 2D al 3D. </p>
+        </br>
+        <img id="nintedo64" src="nintendo64.jpg">
+
+    </div>
+
+    <div>
+        <p>NINTENDO GAMECUBE</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 2001</p>
+        <p>UNIDADES VENDIDAS: 21 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Es una consola de videojuegos en formato cúbico. El procesador especialmente optimizado de 485
+            MHz con alta tecnología de semiconductores de cobre, se complementa con un hardware que rompe los límites
+            entre el mundo real y el videojuego. </p>
+        </br>
+        <img id="gamecube" src="gamecube.jpg">
+
+    </div>
+
+    <div>
+        <p>NINTENDO DS</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 2004</p>
+        <p>UNIDADES VENDIDAS: 154 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Es una consola portátil de Nintendo. Con sus dos pantallas, una de ellas táctil, acercó a todo
+            un nuevo grupo de gente al mundo de los videojuegos. A lo largo de los años han salido al mercado varios
+            modelos diferentes de Nintendo DS. </p>
+        </br>
+        <img id="nintendods" src="nintendoDS.jpg">
+    </div>
+
+    <div>
+        <p>NINTENDO WII</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 2006</p>
+        <p>UNIDADES VENDIDAS: 101 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Es una consola doméstica de Nintendo. Se lanzó en 2006 e introdujo el juego con control por
+            movimiento para una amplia audiencia de fans de Nintendo y también para gente que no eran los tradicionales
+            jugadores de videojuegos. </p>
+        </br>
+        <img id="wii" src="wii.jpg">
+    </div>
+
+    <div>
+        <p>NINTENDO SWITCH</p>
+        <h1></h1>
+        <p>FECHA DE LANZAMIENTO: 2017</p>
+        <p>UNIDADES VENDIDAS: 104 mill.</p>
+        <h1></h1>
+        <p>DESCRIPCIÓN: Es una consola de videojuegos desarrollada por Nintendo. Conocida en el desarrollo por su nombre
+            código «NX», se dio a conocer en octubre de 2016 y fue lanzada mundialmente el 3 de marzo de 2017. Nintendo
+            considera a Switch una consola híbrida. </p>
+        </br>
+        <img id="switch" src="nitendoSwitch.jpg">
+    </div>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Para más info, click aquí (づ｡◕‿‿◕｡)づ</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">Cerrar</span>
+            <h2>Para más consolas, click aquí ⇩ </h2>
+            <h3><a href="https://www.nintendo.es/My-Nintendo-Store/Consolas/Consolas-1886994.html?f=152904-2431-56906">Consolas Nintendo</a></h3>
+        </div>
+    </div>
+
+        <div id="caja">
+
+
+            <p id="parrafo">Adivina.....<br>
+                <br><br>
+            </p>
+            <img src="./pokemon.png">
+
+            <div id="movida">¿Quién es este pokémon?
+            </div>
+
+        </div>
+        <textarea id="mensaje" rows="4" cols="30">Escribe aquí el pokémon que crees que es...</textarea>
+        <button onclick="actualizar()">ACEPTAR</button>
+        <br>
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img id="Evee" src="Evee.jpg" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                    <h2>Eevee</h2>
+                    <p>Pokemon de primera generacion de tipo normal es el pokemon con mas evoluciones hasta la fecha</p>
+
+                </div>
+            </div>
+        </div>
+        <script>
+            // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+                function actualizar() {
+                    document.getElementById("movida").innerHTML = document.getElementById("mensaje").value;
+                }
+        </script>
+
+
+</body>
+
+</html>
