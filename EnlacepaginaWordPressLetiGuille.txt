@@ -1,7 +1,13 @@
 Enlace a la página de WordPress de Leticia y Guillermo:  https://proyectofinalletiguille.000webhostapp.com/
 
-Nuestra página pura está en la entrada de Consolas destacadas.
+Nuestra página pura está en el menú de la página. Te dejamos también el enlace de la página pura publicada en el GitHub (como sub-pestaña 
+en el menú) porque en el WordPress no se nos aplica el efecto del movimiento del texto en el div de abajo del todo, pero en local sí nos 
+funciona.
 
-Usuario: 
+Usuario de Leti: Leticia
+Correo de Leti: yellowsuperstar18@gmail.com
+Usuario de Guille: Guille
+Correo de Guille: guillermocaminorodriguez@gmail.com
 
-Contraseña: Midna1993
+Contraseña para el usuario de Leti: Midna1993
+Contraseña para el usuario de Guille: zenitsu26
